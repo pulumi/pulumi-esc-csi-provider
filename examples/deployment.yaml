@@ -20,12 +20,12 @@ spec:
       - name: client
         image: busybox:latest
         command: ["sh", "-c"]
-        env:
-        - name: SECRET_FROM_K8S_SECRET
-          valueFrom:
-            secretKeyRef:
-              name: example-provider-secret
-              key: password
+        #env:
+        #- name: SECRET_FROM_K8S_SECRET
+        #  valueFrom:
+        #    secretKeyRef:
+        #      name: example-provider-secret
+        #      key: password
         args:
         - |
           set -eux
