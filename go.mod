@@ -3,7 +3,7 @@ module github.com/dirien/pulumi-esc-csi-provider
 go 1.23.1
 
 require (
-	github.com/go-playground/validator/v10 v10.22.1
+	github.com/go-playground/validator/v10 v10.23.0
 	github.com/pulumi/esc-sdk/sdk v0.10.4
 	google.golang.org/grpc v1.68.1
 	gopkg.in/yaml.v3 v3.0.1
