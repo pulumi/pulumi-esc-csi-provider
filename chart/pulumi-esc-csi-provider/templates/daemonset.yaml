@@ -76,7 +76,9 @@ spec:
       {{- toYaml . | nindent 6 }}
       {{- end }}
       serviceAccountName: {{ .Values.serviceAccount.name }}
-      securityContext: {}
+      securityContext:
+        runAsUser: 0
+        fsGroup: 0
       containers:
       - name: {{ .Values.name }}
         image: {{ printf "%s:%s" .Values.image.repository (default (printf "%s" .Chart.AppVersion) .Values.image.tag) }}
