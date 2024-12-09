@@ -33,7 +33,7 @@ jobs:
           scan-type: 'config'
           hide-progress: false
           format: 'sarif'
-          scan-ref: 'helm'
+          scan-ref: 'chart/pulumi-esc-csi-provider'
           output: 'trivy-results.sarif'
           limit-severities-for-sarif: true
           exit-code: '0'
