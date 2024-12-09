@@ -3,6 +3,20 @@ entries:
   pulumi-esc-csi-provider:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2024-12-09T18:21:06.452458829Z"
+    description: A Helm chart for the Pulumi ESC CSI provider
+    digest: 6a4313e8e7a264cd0dd281ea72af45dc8e0fe571898c17e3047183f6f395bd78
+    maintainers:
+    - email: engin@pulumi.com
+      name: dirien
+      url: https://pulumi.com
+    name: pulumi-esc-csi-provider
+    type: application
+    urls:
+    - https://github.com/dirien/pulumi-esc-csi-provider/releases/download/pulumi-esc-csi-provider-0.1.4/pulumi-esc-csi-provider-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2024-12-09T17:29:20.668201907Z"
     description: A Helm chart for the Pulumi ESC CSI provider
     digest: 5886d2f444206ea7b0f3f4fb06f18b54ad6dd411bfb57991951d1fbcab7f5797
@@ -43,4 +57,4 @@ entries:
     urls:
     - https://github.com/dirien/pulumi-esc-csi-provider/releases/download/pulumi-esc-csi-provider-0.1.0/pulumi-esc-csi-provider-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-09T17:29:20.668217386Z"
+generated: "2024-12-09T18:21:06.452480018Z"
