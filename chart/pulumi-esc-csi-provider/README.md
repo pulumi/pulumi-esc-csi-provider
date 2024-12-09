@@ -1,6 +1,6 @@
 # Pulumi ESC Secret Store CSI Driver - Helm Chart
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=for-the-badge) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge) ![AppVersion: 0.1.0](https://img.shields.io/badge/AppVersion-0.1.0-informational?style=for-the-badge)
+![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=for-the-badge) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge) ![AppVersion: 0.1.0](https://img.shields.io/badge/AppVersion-0.1.0-informational?style=for-the-badge)
 
 ## Description 📜
 
@@ -11,7 +11,7 @@ A Helm chart for the Pulumi ESC CSI provider
 To install the chart using the OCI artifact, run:
 
 ```bash
-helm install pulumi-esc-csi-provider oci://ghcr.io/dirien/charts/pulumi-esc-csi-provider --version 0.1.1 --namespace kube-system
+helm install pulumi-esc-csi-provider oci://ghcr.io/dirien/charts/pulumi-esc-csi-provider --version 0.1.2 --namespace kube-system
 ```
 
 After a few seconds, the `pulumi-esc-csi-provider` should be running.
