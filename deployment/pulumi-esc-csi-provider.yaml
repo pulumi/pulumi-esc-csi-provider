@@ -62,18 +62,22 @@ spec:
         app.kubernetes.io/instance: secrets-store-csi-driver-provider-pulumi-esc
         app.kubernetes.io/version: "0.4.2"
     spec:
-      serviceAccountName: secrets-store-csi-driver-provider-pulumi-esc
       securityContext:
-        {}
+        runAsUser: 0
+        fsGroup: 0
+      serviceAccountName: secrets-store-csi-driver-provider-pulumi-esc
+
       containers:
       - name: secrets-store-csi-driver-provider-pulumi-esc
-        image: "dirien/secrets-store-csi-driver-provider-pulumi-esc"
+        image: "ghcr.io/dirien/pulumi-esc-csi-provider:0.1.0"
         imagePullPolicy: Always
         resources:
           {}
+        args:
+        - "-endpoint=/provider/pulumi.sock"
         volumeMounts:
         - name: socket
-          mountPath: /etc/kubernetes/secrets-store-csi-providers
+          mountPath: /provider
       volumes:
       - name: socket
         hostPath:
