@@ -6,8 +6,8 @@ import (
 )
 
 type PulumiClient struct {
-	escClient    esc.EscClient
-	authCtx      context.Context
+	EscClient    esc.EscClient
+	AuthCtx      context.Context
 	project      string
 	environment  string
 	organization string
@@ -24,8 +24,8 @@ func NewPulumiESCClient(accessToken, APIURL, project, environment, organization 
 	authCtx := esc.NewAuthContext(accessToken)
 	escClient := esc.NewClient(configuration)
 	return &PulumiClient{
-		escClient:    *escClient,
-		authCtx:      authCtx,
+		EscClient:    *escClient,
+		AuthCtx:      authCtx,
 		project:      project,
 		environment:  environment,
 		organization: organization,

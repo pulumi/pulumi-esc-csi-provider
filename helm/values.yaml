@@ -1,0 +1,57 @@
+name: pulumi-esc-csi-provider
+namespace: kube-system
+image:
+  repository: ghcr.io/dirien/secrets-store-csi-driver-provider-pulumi-esc
+  tag: latest
+  pullPolicy: Always
+
+args:
+- "-endpoint=/provider/pulumi.sock"
+
+# Resource limits and requests
+resources:
+  requests:
+    cpu: 50m # Minimum CPU needed
+    memory: 100Mi # Minimum memory needed
+  limits:
+    cpu: 50m # Maximum CPU allowed
+    memory: 100Mi # Maximum memory allowed
+
+# Volume configuration for provider socket
+providerVolume:
+  mountPath: /provider
+  hostPath: /etc/kubernetes/secrets-store-csi-providers
+
+# Health check for container liveness
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 8080
+    scheme: HTTP
+  failureThreshold: 2
+  initialDelaySeconds: 5
+  periodSeconds: 5
+  successThreshold: 1
+  timeoutSeconds: 3
+
+# Health check for container readiness
+readinessProbe:
+  httpGet:
+    path: /readyz
+    port: 8080
+    scheme: HTTP
+  failureThreshold: 2
+  initialDelaySeconds: 5
+  periodSeconds: 5
+  successThreshold: 1
+  timeoutSeconds: 3
+
+nodeSelector: {}
+labels: {}
+podLabels: {}
+tolerations: []
+
+serviceAccount:
+  create: true
+  name: pulumi-esc-csi-provider
+  annotations: {}

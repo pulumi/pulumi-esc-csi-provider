@@ -1,15 +1,13 @@
 package config
 
 import (
-	"errors"
 	"fmt"
-	"io"
-	"log/slog"
+	"gopkg.in/yaml.v3"
+	"os"
 	"reflect"
 	"strings"
 
 	"github.com/go-playground/validator/v10"
-	"gopkg.in/yaml.v3"
 )
 
 type Config struct {
@@ -17,7 +15,6 @@ type Config struct {
 	Organization             string  `json:"organization" validate:"required"`
 	Project                  string  `json:"project" validate:"required"`
 	Environment              string  `json:"environment" validate:"required"`
-	Path                     string  `json:"secretsPath" validate:"required"`
 	AuthSecretName           string  `json:"authSecretName" validate:"required"`
 	AuthSecretNamespace      string  `json:"authSecretNamespace" validate:"required"`
 	RawObjects               *string `json:"objects"`
@@ -27,13 +24,18 @@ type Config struct {
 	CSIPodServiceAccountName string  `json:"csi.storage.k8s.io/serviceAccount.name"`
 	CSIEphemeral             string  `json:"csi.storage.k8s.io/ephemeral"`
 	SecretProviderClass      string  `json:"secretProviderClass"`
-	parsedObjects            []object
+	RawSecrets               string  `json:"secrets"`
+	Secrets                  []Secret
 	validator                validator.Validate
+	FilePermission           os.FileMode
+	TargetPath               string
 }
 
-type object struct {
-	Name  string `yaml:"objectName" validate:"required"`
-	Alias string `yaml:"objectAlias" validate:"excludes=/"`
+type Secret struct {
+	FileName   string `yaml:"fileName"`
+	SecretPath string `yaml:"secretPath"`
+	SecretKey  string `yaml:"secretKey"`
+	Format     string `yaml:"format" default:"plaintext"`
 }
 
 func NewValidator() *validator.Validate {
@@ -59,33 +61,12 @@ func NewValidator() *validator.Validate {
 	return validator
 }
 
-func NewMountConfig(validator validator.Validate) *Config {
+func NewMountConfig(validator validator.Validate, apiUrl, targetPath string) *Config {
 	return &Config{
-		Path:      "/",
-		validator: validator,
+		TargetPath: targetPath,
+		validator:  validator,
+		APIURL:     apiUrl,
 	}
-}
-
-func (a *Config) Objects() ([]object, error) {
-	if a.parsedObjects != nil {
-		return a.parsedObjects, nil
-	}
-
-	if a.RawObjects == nil {
-		return nil, nil
-	}
-
-	var objects []object
-	objectDecoder := yaml.NewDecoder(strings.NewReader(*a.RawObjects))
-	objectDecoder.KnownFields(true)
-	// Decode returns io.EOF error when empty string is passed
-	// c.f. https://github.com/go-yaml/yaml/blob/v3.0.1/yaml.go#L123-L126
-	if err := objectDecoder.Decode(&objects); err != nil && !errors.Is(err, io.EOF) {
-		return nil, err
-	}
-
-	a.parsedObjects = objects
-	return objects, nil
 }
 
 func (a *Config) Validate() error {
@@ -93,19 +74,32 @@ func (a *Config) Validate() error {
 		return err
 	}
 
-	if a.APIURL == "" {
-		slog.Info("apiUrl is empty, using default value", "default", "https://api.pulumi.com/api/esc")
-		a.APIURL = "https://api.pulumi.com/api/esc"
+	secretsYaml := a.RawSecrets
+	if secretsYaml != "" {
+		err := yaml.Unmarshal([]byte(secretsYaml), &a.Secrets)
+		if err != nil {
+			return fmt.Errorf("failed to unmarshal secrets: %w", err)
+		}
 	}
 
-	objects, err := a.Objects()
-	if err != nil {
-		return NewConfigError("objects", err)
+	if a.APIURL == "" {
+		return fmt.Errorf("apiUrl is required")
 	}
-	for i, object := range objects {
-		if err := a.validator.Struct(object); err != nil {
-			return NewConfigError("objects", fmt.Errorf("[%d]: %w", i, err))
-		}
+
+	if a.Organization == "" {
+		return fmt.Errorf("organization is required")
+	}
+
+	if a.Project == "" {
+		return fmt.Errorf("project is required")
+	}
+
+	if a.Environment == "" {
+		return fmt.Errorf("environment is required")
+	}
+
+	if len(a.Secrets) == 0 {
+		return fmt.Errorf("secrets is required")
 	}
 
 	return nil
