@@ -2,7 +2,7 @@ name: pulumi-esc-csi-provider
 namespace: kube-system
 image:
   repository: ghcr.io/dirien/secrets-store-csi-driver-provider-pulumi-esc
-  tag: latest
+  tag: ''
   pullPolicy: Always
 
 args:
