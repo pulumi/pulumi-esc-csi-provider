@@ -1,0 +1,11 @@
+FROM golang:1.23-alpine AS builder
+WORKDIR /usr/src/app
+COPY go.mod go.sum ./
+RUN go mod download
+COPY . .
+RUN go build -o /usr/local/bin/app .
+
+
+FROM gcr.io/distroless/static
+COPY --from=builder /usr/local/bin/app /usr/local/bin/secrets-store-csi-driver-provider-pulumi-esc
+ENTRYPOINT ["/usr/local/bin/secrets-store-csi-driver-provider-pulumi-esc"]
