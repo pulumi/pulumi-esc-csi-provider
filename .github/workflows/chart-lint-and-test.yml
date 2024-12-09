@@ -3,8 +3,8 @@ on:
   pull_request:
     paths:
       - helm/**
-      - "!helm/pulumi-operator/README.md"
-      - "!helm/pulumi-operator/README.md.gotmpl"
+      - "!helm/README.md"
+      - "!helm/README.md.gotmpl"
 
 permissions: read-all
 
