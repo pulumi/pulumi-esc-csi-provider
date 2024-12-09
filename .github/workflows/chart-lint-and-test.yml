@@ -2,9 +2,9 @@ name: ct-linting-and-testing
 on:
   pull_request:
     paths:
-      - ../../chart/**
-      - "!helm/README.md"
-      - "!helm/README.md.gotmpl"
+      - chart/**
+      - "!chart/pulumi-esc-csi-provider/README.md"
+      - "!chart/pulumi-esc-csi-provider/README.md.gotmpl"
 
 permissions: read-all
 
@@ -33,7 +33,7 @@ jobs:
           scan-type: 'config'
           hide-progress: false
           format: 'sarif'
-          scan-ref: 'helm'
+          scan-ref: 'chart/pulumi-esc-csi-provider'
           output: 'trivy-results.sarif'
           limit-severities-for-sarif: true
           exit-code: '0'
