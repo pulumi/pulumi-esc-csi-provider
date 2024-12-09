@@ -1,0 +1,52 @@
+# Pulumi ESC Secret Store CSI Driver - Helm Chart
+
+{{ template "chart.badgesSection" . }}
+
+## Description 📜
+
+{{ template "chart.description" . }}
+
+## Usage (via OCI Registry)
+
+To install the chart using the OCI artifact, run:
+
+```bash
+helm install pulumi-esc-csi-provider oci://ghcr.io/dirien/charts/pulumi-esc-csi-provider --version {{ .Version }} --namespace kube-system
+```
+
+After a few seconds, the `pulumi-esc-csi-provider` should be running.
+
+To install the chart in a specific namespace use following commands:
+
+```bash
+kubectl create ns pulumi-esc-csi-provider
+helm install pulumi-esc-csi-provider oci://ghcr.io/dirien/charts/pulumi-esc-csi-provider --namespace kube-system
+```
+
+> **Tip**: List all releases using `helm list`, a release is a name used to track a specific deployment
+
+### Uninstalling the Chart 🗑️
+
+To uninstall the `pulumi-esc-csi-provider` deployment:
+
+```bash
+helm uninstall pulumi-esc-csi-provider
+```
+
+The command removes all the Kubernetes components associated with the chart and deletes the release.
+
+{{ template "chart.valuesSection" . }}
+
+## Contributing 🤝
+
+### Contributing via GitHub
+
+Feel free to join. Checkout the [contributing guide](CONTRIBUTING.md)
+
+## License ⚖️
+
+Apache License, Version 2.0
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "chart.maintainersSection" . }}
