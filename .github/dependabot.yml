@@ -1,22 +1,11 @@
 version: 2
 updates:
   - package-ecosystem: "gomod"
-    directory: "/provider"
+    directory: "/"
     schedule:
       interval: "weekly"
       time: "08:00"
       day: "sunday"
-    labels:
-      - "dependencies"
-    commit-message:
-      prefix: "chore"
-      include: "scope"
-  - package-ecosystem: "gomod"
-    directory: "/sdk"
-    schedule:
-      interval: "weekly"
-      day: "sunday"
-      time: "08:00"
     labels:
       - "dependencies"
     commit-message:
@@ -30,15 +19,6 @@ updates:
       time: "08:00"
     labels:
       - "dependencies"
-    commit-message:
-      prefix: "chore"
-      include: "scope"
-  - package-ecosystem: "docker"
-    directory: "/.devcontainer"
-    schedule:
-      interval: "daily"
-    labels:
-    - "dependencies"
     commit-message:
       prefix: "chore"
       include: "scope"
