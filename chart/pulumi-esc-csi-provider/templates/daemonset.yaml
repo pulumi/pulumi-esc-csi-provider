@@ -18,7 +18,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: {{ .Values.serviceAccount.name }}-cr
-  namespace:  {{ .Values.namespace }}
+  namespace: {{ .Values.namespace }}
   labels:
     app: {{ .Values.name }}
     {{- with .Values.labels }}
@@ -33,7 +33,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: {{ .Values.serviceAccount.name }}-crb
-  namespace:  {{ .Values.namespace }}
+  namespace: {{ .Values.namespace }}
   labels:
     app: {{ .Values.name }}
    {{- with .Values.labels }}
@@ -45,10 +45,10 @@ roleRef:
   name: {{ .Values.serviceAccount.name }}-cr
 subjects:
 - kind: ServiceAccount
-  namespace: kube-system
+  namespace: {{ .Values.namespace }}
   name: {{ .Values.serviceAccount.name }}
----
 {{- end }}
+---
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -58,7 +58,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
     {{- end }}
   name: {{ .Values.name }}
-  namespace: {{ .Values.namespace | default "kube-system" }}
+  namespace: {{ .Values.namespace }}
 spec:
   selector:
     matchLabels:
@@ -79,7 +79,7 @@ spec:
       securityContext: {}
       containers:
       - name: {{ .Values.name }}
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        image: {{ printf "%s:%s" .Values.image.repository (default (printf "%s" .Chart.AppVersion) .Values.image.tag) }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         args:
           {{- with .Values.args }}
