@@ -52,14 +52,14 @@ jobs:
       - name: Run Artifact Hub lint
         run: |
           curl -s https://api.github.com/repos/artifacthub/hub/releases/latest | grep -E 'browser_download_url' | grep linux_amd64.tar.gz\" | grep -Eo 'https://[^\"]*' | xargs wget -O - | tar -xz
-          ./ah lint -p helm || exit 1
+          ./ah lint -p chart/pulumi-esc-csi-provider || exit 1
           rm -f ./ah
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@a917fd15b20e8b64b94d9158ad54cd6345335584 # v1.6.0
         with:
           config: "./.github/configs/cr.yaml"
-          charts_dir: "helm"
+          charts_dir: "chart"
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 

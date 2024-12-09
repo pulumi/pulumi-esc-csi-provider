@@ -23,5 +23,5 @@ tilt up
 
 ### Deploy Pulumi ESC Secret Store CSI Driver - production
 
-See [helm/README.md](./helm/README.md) for instructions on how to deploy the Pulumi ESC Secret Store CSI Driver using Helm.
+See [helm/README.md](chart/README.md) for instructions on how to deploy the Pulumi ESC Secret Store CSI Driver using Helm.
 
