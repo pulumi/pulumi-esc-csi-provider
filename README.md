@@ -1,6 +1,15 @@
-# Pulumi ESC Secret Store CSI Driver
+# Pulumi ESC Secret Store CSI Driver - 🔒
+
+Pulumi ESC for the [Secrets Store CSI driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver) will allow
+you to mount Pulumi ESC secrets directly into your Kubernetes pods while not using k8s-native secretes in your
+Kubernetes cluster.
 
 ## Getting Started
+
+### Prerequisites
+
+- Kubernetes version >= 1.20
+- [Tilt](https://docs.tilt.dev/) (for local development) 
 
 ### Deploy Secret Store CSI Driver using Helm
 
@@ -21,7 +30,21 @@ namespace.
 tilt up
 ```
 
-### Deploy Pulumi ESC Secret Store CSI Driver - production
+### Deploy Pulumi ESC Secret Store CSI Driver - Kubernetes
 
-See [helm/README.md](chart/README.md) for instructions on how to deploy the Pulumi ESC Secret Store CSI Driver using Helm.
+See [helm/README.md](chart/README.md) for instructions on how to deploy the Pulumi ESC Secret Store CSI Driver using
+Helm.
 
+## License ⚖️
+
+Apache License, Version 2.0
+
+## Source Code
+
+* <https://github.com/pulumi/pulumi-esc-csi-provider.git>
+
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| dirien | <engin@pulumi.com> | <https://pulumi.com> |

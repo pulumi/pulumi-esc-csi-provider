@@ -45,7 +45,7 @@ signs:
     output: true
 
 dockers:
-  - image_templates: [ "ghcr.io/dirien/{{ .ProjectName }}:{{ .Version }}-amd64" ]
+  - image_templates: [ "ghcr.io/pulumi/{{ .ProjectName }}:{{ .Version }}-amd64" ]
     dockerfile: Dockerfile
     use: buildx
     build_flag_templates:
@@ -57,7 +57,7 @@ dockers:
       - --label=org.opencontainers.image.revision={{.FullCommit}}
       - --label=org.opencontainers.image.version={{.Version}}
       - --label=org.opencontainers.image.source={{.GitURL}}
-  - image_templates: [ "ghcr.io/dirien/{{ .ProjectName }}:{{ .Version }}-arm64" ]
+  - image_templates: [ "ghcr.io/pulumi/{{ .ProjectName }}:{{ .Version }}-arm64" ]
     goarch: arm64
     dockerfile: Dockerfile
     use: buildx
@@ -72,14 +72,14 @@ dockers:
       - --label=org.opencontainers.image.source={{.GitURL}}
 
 docker_manifests:
-  - name_template: 'ghcr.io/dirien/{{ .ProjectName }}:{{ .Version }}'
+  - name_template: 'ghcr.io/pulumi/{{ .ProjectName }}:{{ .Version }}'
     image_templates:
-      - 'ghcr.io/dirien/{{ .ProjectName }}:{{ .Version }}-amd64'
-      - 'ghcr.io/dirien/{{ .ProjectName }}:{{ .Version }}-arm64'
-  - name_template: 'ghcr.io/dirien/{{ .ProjectName }}:latest'
+      - 'ghcr.io/pulumi/{{ .ProjectName }}:{{ .Version }}-amd64'
+      - 'ghcr.io/pulumi/{{ .ProjectName }}:{{ .Version }}-arm64'
+  - name_template: 'ghcr.io/pulumi/{{ .ProjectName }}:latest'
     image_templates:
-      - 'ghcr.io/dirien/{{ .ProjectName }}:{{ .Version }}-amd64'
-      - 'ghcr.io/dirien/{{ .ProjectName }}:{{ .Version }}-arm64'
+      - 'ghcr.io/pulumi/{{ .ProjectName }}:{{ .Version }}-amd64'
+      - 'ghcr.io/pulumi/{{ .ProjectName }}:{{ .Version }}-arm64'
 
 
 docker_signs:

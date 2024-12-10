@@ -4,16 +4,18 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/dirien/pulumi-esc-csi-provider/internal/auth"
-	"github.com/dirien/pulumi-esc-csi-provider/internal/server"
-	"k8s.io/client-go/kubernetes"
-	"k8s.io/client-go/rest"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
 	"strings"
 	"syscall"
+	"time"
+
+	"github.com/pulumi/pulumi-esc-csi-provider/internal/auth"
+	"github.com/pulumi/pulumi-esc-csi-provider/internal/server"
+	"k8s.io/client-go/kubernetes"
+	"k8s.io/client-go/rest"
 )
 
 const figletStr = `
@@ -74,8 +76,9 @@ func main() {
 func startHealthCheck() chan error {
 	mux := http.NewServeMux()
 	ms := http.Server{
-		Addr:    fmt.Sprintf(":%s", *healthPort),
-		Handler: mux,
+		Addr:              fmt.Sprintf(":%s", *healthPort),
+		Handler:           mux,
+		ReadHeaderTimeout: 10 * time.Second,
 	}
 
 	errorCh := make(chan error)

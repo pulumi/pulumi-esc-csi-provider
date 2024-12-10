@@ -1,4 +1,3 @@
-//go:generate mockgen -destination=mock_$GOPACKAGE/mock_$GOFILE -source=$GOFILE
 package auth
 
 import (

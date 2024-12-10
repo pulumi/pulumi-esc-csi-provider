@@ -6,7 +6,7 @@ helm_remote('secrets-store-csi-driver',
 
 
 docker_build(
-    'ghcr.io/dirien/secrets-store-csi-driver-provider-pulumi-esc',
+    'ghcr.io/pulumi/secrets-store-csi-driver-provider-pulumi-esc',
     context='.',
     dockerfile='./Dockerfile.tilt',
     live_update=[
