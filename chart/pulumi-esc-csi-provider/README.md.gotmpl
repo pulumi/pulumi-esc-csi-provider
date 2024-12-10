@@ -11,7 +11,7 @@
 To install the chart using the OCI artifact, run:
 
 ```bash
-helm install pulumi-esc-csi-provider oci://ghcr.io/dirien/charts/pulumi-esc-csi-provider --version {{ .Version }} --namespace kube-system
+helm install pulumi-esc-csi-provider oci://ghcr.io/pulumi/helm-charts/pulumi-esc-csi-provider --version {{ .Version }} --namespace kube-system
 ```
 
 After a few seconds, the `pulumi-esc-csi-provider` should be running.
@@ -20,7 +20,7 @@ To install the chart in a specific namespace use following commands:
 
 ```bash
 kubectl create ns pulumi-esc-csi-provider
-helm install pulumi-esc-csi-provider oci://ghcr.io/dirien/charts/pulumi-esc-csi-provider --namespace kube-system
+helm install pulumi-esc-csi-provider oci://ghcr.io/pulumi/helm-charts/pulumi-esc-csi-provider --namespace kube-system
 ```
 
 > **Tip**: List all releases using `helm list`, a release is a name used to track a specific deployment

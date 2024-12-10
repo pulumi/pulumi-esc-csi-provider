@@ -1,6 +1,6 @@
 # Pulumi ESC Secret Store CSI Driver - Helm Chart
 
-![Version: 0.1.4](https://img.shields.io/badge/Version-0.1.4-informational?style=for-the-badge) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge) ![AppVersion: 0.1.0](https://img.shields.io/badge/AppVersion-0.1.0-informational?style=for-the-badge)
+![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=for-the-badge) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge) ![AppVersion: 0.1.0](https://img.shields.io/badge/AppVersion-0.1.0-informational?style=for-the-badge)
 
 ## Description 📜
 
@@ -11,7 +11,7 @@ A Helm chart for the Pulumi ESC CSI provider
 To install the chart using the OCI artifact, run:
 
 ```bash
-helm install pulumi-esc-csi-provider oci://ghcr.io/dirien/charts/pulumi-esc-csi-provider --version 0.1.4 --namespace kube-system
+helm install pulumi-esc-csi-provider oci://ghcr.io/pulumi/helm-charts/pulumi-esc-csi-provider --version 0.1.5 --namespace kube-system
 ```
 
 After a few seconds, the `pulumi-esc-csi-provider` should be running.
@@ -20,7 +20,7 @@ To install the chart in a specific namespace use following commands:
 
 ```bash
 kubectl create ns pulumi-esc-csi-provider
-helm install pulumi-esc-csi-provider oci://ghcr.io/dirien/charts/pulumi-esc-csi-provider --namespace kube-system
+helm install pulumi-esc-csi-provider oci://ghcr.io/pulumi/helm-charts/pulumi-esc-csi-provider --namespace kube-system
 ```
 
 > **Tip**: List all releases using `helm list`, a release is a name used to track a specific deployment
@@ -41,7 +41,7 @@ The command removes all the Kubernetes components associated with the chart and 
 |-----|------|---------|-------------|
 | args[0] | string | `"-endpoint=/provider/pulumi.sock"` |  |
 | image.pullPolicy | string | `"Always"` |  |
-| image.repository | string | `"ghcr.io/dirien/pulumi-esc-csi-provider"` |  |
+| image.repository | string | `"ghcr.io/pulumi/pulumi-esc-csi-provider"` |  |
 | image.tag | string | `""` |  |
 | labels | object | `{}` |  |
 | livenessProbe.failureThreshold | int | `2` |  |

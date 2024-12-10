@@ -5,8 +5,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/dirien/pulumi-esc-csi-provider/internal/provider"
-	"gopkg.in/yaml.v3"
 	"log/slog"
 	"net"
 	"os"
@@ -14,10 +12,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dirien/pulumi-esc-csi-provider/internal/auth"
-	"github.com/dirien/pulumi-esc-csi-provider/internal/config"
 	"github.com/go-playground/validator/v10"
+	"github.com/pulumi/pulumi-esc-csi-provider/internal/auth"
+	"github.com/pulumi/pulumi-esc-csi-provider/internal/config"
+	"github.com/pulumi/pulumi-esc-csi-provider/internal/provider"
 	"google.golang.org/grpc"
+	"gopkg.in/yaml.v3"
 	"k8s.io/apimachinery/pkg/types"
 	pb "sigs.k8s.io/secrets-store-csi-driver/provider/v1alpha1"
 )
@@ -118,14 +118,17 @@ func (p *PulumiESCProviderServer) Mount(ctx context.Context, req *pb.MountReques
 		mountResponse.Error.Code = ErrorBadRequest
 		return mountResponse, fmt.Errorf("failed to get credentials, error: %w", err)
 	}
-	pulumiESCClint := provider.NewPulumiESCClient(credentials.Pat, mountConfig.APIURL, mountConfig.Project, mountConfig.Environment, mountConfig.Organization)
-	env, err := pulumiESCClint.EscClient.OpenEnvironment(pulumiESCClint.AuthCtx, mountConfig.Organization, mountConfig.Project, mountConfig.Environment)
+	pulumiESCClint := provider.NewPulumiESCClient(credentials.Pat, mountConfig.APIURL, mountConfig.Project,
+		mountConfig.Environment, mountConfig.Organization)
+	env, err := pulumiESCClint.EscClient.OpenEnvironment(pulumiESCClint.AuthCtx, mountConfig.Organization,
+		mountConfig.Project, mountConfig.Environment)
 	if err != nil {
 		return nil, err
 	}
 	secretMap := make(map[string]*secretItem)
 	for _, secret := range mountConfig.Secrets {
-		val, _, err := pulumiESCClint.EscClient.ReadEnvironmentProperty(pulumiESCClint.AuthCtx, mountConfig.Organization, mountConfig.Project, mountConfig.Environment, env.GetId(), secret.SecretKey)
+		val, _, err := pulumiESCClint.EscClient.ReadEnvironmentProperty(pulumiESCClint.AuthCtx,
+			mountConfig.Organization, mountConfig.Project, mountConfig.Environment, env.GetId(), secret.SecretKey)
 		if err != nil {
 			return nil, err
 		}
@@ -162,7 +165,8 @@ func (p *PulumiESCProviderServer) Mount(ctx context.Context, req *pb.MountReques
 	for _, value := range secretMap {
 		files = append(files, &pb.File{Path: value.FileName, Mode: int32(mountConfig.FilePermission), Contents: value.Value})
 		ov = append(ov, &pb.ObjectVersion{Id: value.FileName, Version: value.Version})
-		slog.Info(fmt.Sprintf("secret added to mount response, directory: %v, file: %v", mountConfig.TargetPath, value.FileName))
+		slog.Info(fmt.Sprintf("secret added to mount response, directory: %v, file: %v",
+			mountConfig.TargetPath, value.FileName))
 	}
 
 	return &pb.MountResponse{

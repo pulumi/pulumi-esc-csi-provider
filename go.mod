@@ -1,4 +1,4 @@
-module github.com/dirien/pulumi-esc-csi-provider
+module github.com/pulumi/pulumi-esc-csi-provider
 
 go 1.23.1
 

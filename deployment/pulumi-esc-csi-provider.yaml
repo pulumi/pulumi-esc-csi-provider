@@ -69,7 +69,7 @@ spec:
 
       containers:
       - name: secrets-store-csi-driver-provider-pulumi-esc
-        image: "ghcr.io/dirien/pulumi-esc-csi-provider:0.1.0"
+        image: "ghcr.io/pulumi/pulumi-esc-csi-provider:0.1.0"
         imagePullPolicy: Always
         resources:
           {}
