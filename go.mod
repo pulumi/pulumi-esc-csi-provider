@@ -5,7 +5,7 @@ go 1.23.1
 require (
 	github.com/go-playground/validator/v10 v10.23.0
 	github.com/pulumi/esc-sdk/sdk v0.10.4
-	google.golang.org/grpc v1.68.1
+	google.golang.org/grpc v1.69.0
 	gopkg.in/yaml.v3 v3.0.1
 	k8s.io/apimachinery v0.31.3
 	k8s.io/client-go v0.31.3
