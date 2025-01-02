@@ -4,10 +4,39 @@ description: A Helm chart for the Pulumi ESC CSI provider
 
 type: application
 
-version: 0.1.5
-appVersion: "0.1.0"
+version: 0.1.6
+appVersion: "0.1.1"
 
 maintainers:
 - name: dirien
   email: engin@pulumi.com
   url: https://pulumi.com
+
+keywords:
+- pulumi
+- esc
+- csi
+
+home: https://www.pulumi.com/
+
+sources:
+- https://github.com/pulumi/pulumi-esc-csi-provider
+
+icon: https://www.pulumi.com/logos/brand/avatar-on-white.svg
+
+annotations:
+  artifacthub.io/containsSecurityUpdates: "true"
+  artifacthub.io/changes: |
+    - Update to fix some security issues in go dependencies
+  artifacthub.io/images: |
+    - name: pulumi-esc-csi-provider
+      image: ghcr.io/pulumi/pulumi-esc-csi-provider:0.1.1
+      platforms:
+        - linux/amd64
+  artifacthub.io/license: Apache-2.0
+  artifacthub.io/links: |
+    - name: website
+      url: https://pulumi.com
+  artifacthub.io/maintainers: |
+    - name: dirien
+      email: engin@pulumi.com

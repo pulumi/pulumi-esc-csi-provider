@@ -1,6 +1,7 @@
 # Pulumi ESC Secret Store CSI Driver - Helm Chart
 
 {{ template "chart.badgesSection" . }}
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/pulumi-esc-csi-provider&style=for-the-badge)](https://artifacthub.io/packages/search?repo=pulumi-esc-csi-provider)
 
 ## Description 📜
 
@@ -23,7 +24,8 @@ kubectl create ns pulumi-esc-csi-provider
 helm install pulumi-esc-csi-provider oci://ghcr.io/pulumi/helm-charts/pulumi-esc-csi-provider --namespace kube-system
 ```
 
-> **Tip**: List all releases using `helm list`, a release is a name used to track a specific deployment
+> [!TIP]
+> List all releases using `helm list`, a release is a name used to track a specific deployment
 
 ### Uninstalling the Chart 🗑️
 
