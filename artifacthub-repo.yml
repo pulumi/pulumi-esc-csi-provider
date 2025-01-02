@@ -1,0 +1,5 @@
+# ID is for the OCI Image
+repositoryID: eeb5f23d-ee07-49b2-b798-76f21c7b7b35
+owners:
+- name: dirien
+  email: engin@pulumi.com
