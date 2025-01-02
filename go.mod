@@ -7,8 +7,8 @@ require (
 	github.com/pulumi/esc-sdk/sdk v0.10.4
 	google.golang.org/grpc v1.69.2
 	gopkg.in/yaml.v3 v3.0.1
-	k8s.io/apimachinery v0.31.3
-	k8s.io/client-go v0.31.3
+	k8s.io/apimachinery v0.32.0
+	k8s.io/client-go v0.32.0
 	sigs.k8s.io/secrets-store-csi-driver v1.4.7
 )
 
@@ -36,6 +36,7 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
+	github.com/pkg/errors v0.9.1 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
 	golang.org/x/crypto v0.30.0 // indirect
 	golang.org/x/net v0.32.0 // indirect
@@ -46,10 +47,11 @@ require (
 	golang.org/x/time v0.8.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20241206012308-a4fef0638583 // indirect
 	google.golang.org/protobuf v1.35.2 // indirect
+	gopkg.in/evanphx/json-patch.v4 v4.12.0 // indirect
 	gopkg.in/ghodss/yaml.v1 v1.0.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	k8s.io/api v0.31.3 // indirect
+	k8s.io/api v0.32.0 // indirect
 	k8s.io/klog/v2 v2.130.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20241127205056-99599406b04f // indirect
 	k8s.io/utils v0.0.0-20241104163129-6fe5fd82f078 // indirect
