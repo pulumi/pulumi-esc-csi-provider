@@ -1,6 +1,7 @@
 # Pulumi ESC Secret Store CSI Driver - Helm Chart
 
-![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=for-the-badge) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge) ![AppVersion: 0.1.0](https://img.shields.io/badge/AppVersion-0.1.0-informational?style=for-the-badge)
+![Version: 0.1.6](https://img.shields.io/badge/Version-0.1.6-informational?style=for-the-badge) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=for-the-badge) ![AppVersion: 0.1.1](https://img.shields.io/badge/AppVersion-0.1.1-informational?style=for-the-badge)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/pulumi-esc-csi-provider&style=for-the-badge)](https://artifacthub.io/packages/search?repo=pulumi-esc-csi-provider)
 
 ## Description 📜
 
@@ -11,7 +12,7 @@ A Helm chart for the Pulumi ESC CSI provider
 To install the chart using the OCI artifact, run:
 
 ```bash
-helm install pulumi-esc-csi-provider oci://ghcr.io/pulumi/helm-charts/pulumi-esc-csi-provider --version 0.1.5 --namespace kube-system
+helm install pulumi-esc-csi-provider oci://ghcr.io/pulumi/helm-charts/pulumi-esc-csi-provider --version 0.1.6 --namespace kube-system
 ```
 
 After a few seconds, the `pulumi-esc-csi-provider` should be running.
@@ -23,7 +24,8 @@ kubectl create ns pulumi-esc-csi-provider
 helm install pulumi-esc-csi-provider oci://ghcr.io/pulumi/helm-charts/pulumi-esc-csi-provider --namespace kube-system
 ```
 
-> **Tip**: List all releases using `helm list`, a release is a name used to track a specific deployment
+> [!TIP]
+> List all releases using `helm list`, a release is a name used to track a specific deployment
 
 ### Uninstalling the Chart 🗑️
 
@@ -84,6 +86,10 @@ Feel free to join. Checkout the [contributing guide](CONTRIBUTING.md)
 ## License ⚖️
 
 Apache License, Version 2.0
+
+## Source Code
+
+* <https://github.com/pulumi/pulumi-esc-csi-provider>
 
 ## Maintainers
 
