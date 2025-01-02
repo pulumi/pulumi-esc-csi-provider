@@ -1,6 +1,44 @@
 apiVersion: v1
 entries:
   pulumi-esc-csi-provider:
+  - annotations:
+      artifacthub.io/changes: |
+        - Update to fix some security issues in go dependencies
+      artifacthub.io/containsSecurityUpdates: "true"
+      artifacthub.io/images: |
+        - name: pulumi-esc-csi-provider
+          image: ghcr.io/pulumi/pulumi-esc-csi-provider:0.1.1
+          platforms:
+            - linux/amd64
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: website
+          url: https://pulumi.com
+      artifacthub.io/maintainers: |
+        - name: dirien
+          email: engin@pulumi.com
+    apiVersion: v2
+    appVersion: 0.1.1
+    created: "2025-01-02T12:31:45.399048665Z"
+    description: A Helm chart for the Pulumi ESC CSI provider
+    digest: 294a358b5e523a0457ad5f8b1cf39a2b75d17f2a56e2c97b2541cc62ee65a8c7
+    home: https://www.pulumi.com/
+    icon: https://www.pulumi.com/logos/brand/avatar-on-white.svg
+    keywords:
+    - pulumi
+    - esc
+    - csi
+    maintainers:
+    - email: engin@pulumi.com
+      name: dirien
+      url: https://pulumi.com
+    name: pulumi-esc-csi-provider
+    sources:
+    - https://github.com/pulumi/pulumi-esc-csi-provider
+    type: application
+    urls:
+    - https://github.com/pulumi/pulumi-esc-csi-provider/releases/download/pulumi-esc-csi-provider-0.1.6/pulumi-esc-csi-provider-0.1.6.tgz
+    version: 0.1.6
   - apiVersion: v2
     appVersion: 0.1.0
     created: "2024-12-10T11:28:50.616352288Z"
@@ -15,4 +53,4 @@ entries:
     urls:
     - https://github.com/pulumi/pulumi-esc-csi-provider/releases/download/pulumi-esc-csi-provider-0.1.5/pulumi-esc-csi-provider-0.1.5.tgz
     version: 0.1.5
-generated: "2024-12-10T11:28:50.61635898Z"
+generated: "2025-01-02T12:31:45.399061499Z"
