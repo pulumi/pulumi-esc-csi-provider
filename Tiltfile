@@ -6,7 +6,7 @@ helm_remote('secrets-store-csi-driver',
 
 
 docker_build(
-    'ghcr.io/pulumi/secrets-store-csi-driver-provider-pulumi-esc',
+    'ghcr.io/pulumi/pulumi-esc-csi-provider',
     context='.',
     dockerfile='./Dockerfile.tilt',
     live_update=[
@@ -14,7 +14,9 @@ docker_build(
     ],
 )
 
-k8s_yaml(helm('./helm'))
+k8s_yaml(helm('./chart/pulumi-esc-csi-provider'))
+#k8s_yaml('./deployment/pulumi-esc-csi-provider.yaml')
+
 
 k8s_yaml(
     listdir('examples')
