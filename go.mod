@@ -7,7 +7,7 @@ require (
 	github.com/pulumi/esc-sdk/sdk v0.10.5
 	google.golang.org/grpc v1.69.2
 	gopkg.in/yaml.v3 v3.0.1
-	k8s.io/apimachinery v0.32.0
+	k8s.io/apimachinery v0.32.1
 	k8s.io/client-go v0.32.0
 	sigs.k8s.io/secrets-store-csi-driver v1.4.7
 )
