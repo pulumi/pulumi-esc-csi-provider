@@ -7,8 +7,8 @@ require (
 	github.com/pulumi/esc-sdk/sdk v0.10.5
 	google.golang.org/grpc v1.69.2
 	gopkg.in/yaml.v3 v3.0.1
-	k8s.io/apimachinery v0.32.0
-	k8s.io/client-go v0.32.0
+	k8s.io/apimachinery v0.32.1
+	k8s.io/client-go v0.32.1
 	sigs.k8s.io/secrets-store-csi-driver v1.4.7
 )
 
@@ -51,7 +51,7 @@ require (
 	gopkg.in/ghodss/yaml.v1 v1.0.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	k8s.io/api v0.32.0 // indirect
+	k8s.io/api v0.32.1 // indirect
 	k8s.io/klog/v2 v2.130.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20241127205056-99599406b04f // indirect
 	k8s.io/utils v0.0.0-20241104163129-6fe5fd82f078 // indirect
