@@ -110,8 +110,8 @@ golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3/go.mod h1:t9HGtf8HONx5eT2rtn
 golang.org/x/net v0.0.0-20190620200207-3b0461eec859/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
 golang.org/x/net v0.0.0-20200226121028-0de0cce0169b/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
 golang.org/x/net v0.0.0-20201021035429-f5854403a974/go.mod h1:sp8m0HH+o8qH0wwXwYZr8TS3Oi6o0r6Gce1SSxlDquU=
-golang.org/x/net v0.32.0 h1:ZqPmj8Kzc+Y6e0+skZsuACbx+wzMgo5MQsJh9Qd6aYI=
-golang.org/x/net v0.32.0/go.mod h1:CwU0IoeOlnQQWJ6ioyFrfRuomB8GKF6KbYXZVyeXNfs=
+golang.org/x/net v0.33.0 h1:74SYHlV8BIgHIFC/LrYkOGIwL19eTYXQ5wc6TBuO36I=
+golang.org/x/net v0.33.0/go.mod h1:HXLR5J+9DxmrqMwG9qjGCxZ+zKXxBru04zlTvWlWuN4=
 golang.org/x/oauth2 v0.24.0 h1:KTBBxWqUa0ykRPLtV69rRto9TLXcqYkeswu48x/gvNE=
 golang.org/x/oauth2 v0.24.0/go.mod h1:XYTD2NtWslqkgxebSiOHnXEap4TF09sJSc7H1sXbhtI=
 golang.org/x/sync v0.0.0-20190423024810-112230192c58/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
@@ -173,8 +173,8 @@ k8s.io/utils v0.0.0-20241104163129-6fe5fd82f078 h1:jGnCPejIetjiy2gqaJ5V0NLwTpF4w
 k8s.io/utils v0.0.0-20241104163129-6fe5fd82f078/go.mod h1:OLgZIPagt7ERELqWJFomSt595RzquPNLL48iOWgYOg0=
 sigs.k8s.io/json v0.0.0-20241014173422-cfa47c3a1cc8 h1:gBQPwqORJ8d8/YNZWEjoZs7npUVDpVXUUOFfW6CgAqE=
 sigs.k8s.io/json v0.0.0-20241014173422-cfa47c3a1cc8/go.mod h1:mdzfpAEoE6DHQEN0uh9ZbOCuHbLK5wOm7dK4ctXE9Tg=
-sigs.k8s.io/secrets-store-csi-driver v1.4.7 h1:AyuwmPTW2GoPD2RjyVD3OrH1J9cdPZx+0h2qJvzbGXs=
-sigs.k8s.io/secrets-store-csi-driver v1.4.7/go.mod h1:0/wMVOv8qLx7YNVMGU+Sh7S4D6TH6GhyEpouo28OTUU=
+sigs.k8s.io/secrets-store-csi-driver v1.4.8 h1:YmL0lx9HMYqeZCnLyOZRMuGAZXmP/e42UGCCAnMKjgE=
+sigs.k8s.io/secrets-store-csi-driver v1.4.8/go.mod h1:IawZyjzh3xGt6hHdckJUf3ls04O0zG5H550PEZz/beo=
 sigs.k8s.io/structured-merge-diff/v4 v4.4.3 h1:sCP7Vv3xx/CWIuTPVN38lUPx0uw0lcLfzaiDa8Ja01A=
 sigs.k8s.io/structured-merge-diff/v4 v4.4.3/go.mod h1:N8f93tFZh9U6vpxwRArLiikrE5/2tiu1w1AGfACIGE4=
 sigs.k8s.io/yaml v1.4.0 h1:Mk1wCc2gy/F0THH0TAp1QYyJNzRm2KCLy3o5ASXVI5E=
